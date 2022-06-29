@@ -62,7 +62,7 @@ let layerControl = L.control.layers({
         eGrundkarteTirol.nomenklatur,
     ])
 }, {
-    "Trekking-route": overlays.gpx,
+    "Stadtfuehrung-route": overlays.gpx,
 }).addTo(map);
 
 
@@ -135,7 +135,7 @@ gpxTrack.on("loaded", function (evt) {
 
 
 
-    // Rainviewer
+ // Rainviewer
     L.control.rainviewer({
         position: 'topleft',
         nextButtonText: '>',
@@ -169,36 +169,3 @@ gpxTrack.on("addline", function (evt) {
 });
 
 
-//Chart.js Pie Chart einbauen
-  const labels = [
-    'Primary Street',
-    'Secondary Street',
-    'Living Street',
-    'Footway',
-    'Path',
-    'AlpinePath',
-  ];
-
-  const data = {
-    labels: labels,
-   
-    
-    datasets: [{
-      label: 'Path-Classification',
-      backgroundColor: 'white',
-      borderColor: 'black',
-      data: [0, 10, 5, 2, 20, 30, 35],
-      height: "300",
-    }]
-  };
-
-  const config = {
-    type: 'doughnut',
- 
-    data: data,
-  };
- 
-  const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );

@@ -1,6 +1,6 @@
 /* Bike Trail Tirol Beispiel */
 
-let hintereisferner = {
+let muenchen = {
     lat: 48.137222, 
     lng: 11.575556,
     zoom: 15
@@ -42,8 +42,8 @@ let overlays = {
 
 // Karte initialisieren
 let map = L.map("map", {
-    center: [hintereisferner.lat, hintereisferner.lng],
-    zoom: hintereisferner.zoom,
+    center: [muenchen.lat, muenchen.lng],
+    zoom: muenchen.zoom,
     layers: [
         startLayer
     ],
@@ -86,7 +86,7 @@ let miniMap = new L.Control.MiniMap(
 overlays.gpx.addTo(map);
 
 // GPX Track Layer implementieren
-let gpxTrack = new L.GPX("./data/stadtfuehrung.gpx", {
+let gpxTrack = new L.GPX("./data/stadtfuehrung.gpx",  {
     async: true,
     marker_options: {
         startIconUrl: 'icons/start.png',
@@ -102,6 +102,8 @@ let gpxTrack = new L.GPX("./data/stadtfuehrung.gpx", {
 
 }).addTo(overlays.gpx);
 
+
+
 gpxTrack.on("loaded", function (evt) {
     //console.log ("loaded gpx event: ", evt);
     map.fitBounds(evt.target.getBounds())
@@ -110,6 +112,11 @@ gpxTrack.on("loaded", function (evt) {
     let gpxLayer = evt.target;
     map.fitBounds(gpxLayer.getBounds());
 
+
+    
+    new L.GPX(gpx, {async: true}).on('loaded', function(e) {
+      map.fitBounds(e.target.getBounds());
+    }).addTo(map);
 
 
     let popup = `
@@ -127,6 +134,18 @@ gpxTrack.on("loaded", function (evt) {
 
 </ul>
 `;
+
+
+
+var gpxTrack = new L.GPX("./data/standort.gpx",  {
+    async: true,
+    marker_options: {
+        IconUrl: './icons/mountain.png',
+        
+    }
+
+}).addTo(overlays.gpx);
+
 
     // Print
     L.control.bigImage({
@@ -156,6 +175,14 @@ let elevationControl = L.control.elevation({
     elevationDIV: "#profile",
     height: 300,
     downloadLink: 'link',
+    url: "./data/stadtfuehrung.gpx",
+    options: {
+        preferCanvas: true,
+        collapsed: false,
+        detached: true,
+        useLeafletMarker: true,
+        summary: 'points',
+        hotline: false,}
 
 
 
@@ -167,5 +194,3 @@ gpxTrack.on("addline", function (evt) {
 
     elevationControl.addData(evt.line);
 });
-
-

@@ -1,8 +1,8 @@
 /* Bike Trail Tirol Beispiel */
 
 let hintereisferner = {
-    lat: 46.7956981,
-    lng: 10.7411067,
+    lat: 48.137222, 
+    lng: 11.575556,
     zoom: 15
 };
 
@@ -32,7 +32,8 @@ const eGrundkarteTirol = {
 }
 
 // eGrundkarte Tirol Sommer als Startlayer
-let startLayer = eGrundkarteTirol.ortho;
+// Hintergrundlayer Satellitenbild
+let startLayer = L.tileLayer.provider("Esri.WorldImagery")
 
 // Overlays Objekt für den GPX Track Layer
 let overlays = {
@@ -76,7 +77,7 @@ L.control.fullscreen().addTo(map);
 
 // Mini-Map
 let miniMap = new L.Control.MiniMap(
-    L.tileLayer.provider("BasemapAT"), {
+    L.tileLayer.provider("Esri.WorldImagery"), {
         toggleDisplay: true
     }
 ).addTo(map);
@@ -116,7 +117,7 @@ gpxTrack.on("loaded", function (evt) {
 <ul>
 <img src="https://www.foto-webcam.eu/webcam/hintereisferner1/current/180.jpg" href="https://www.foto-webcam.eu/webcam/hintereisferner1/" style="width:170px; border:2px solid silver;" alt="Webcam">
     <br>
-    <h2> Trekkingroute Hard-Facts: </h2>
+    <h2> Stadtführung Hard-Facts: </h2>
     <li>Distance: ${gpxLayer.get_distance().toFixed()/1000} Kilometers </li>
     <li>Highest Point: ${gpxLayer.get_elevation_max().toFixed()} m. a. Z.</li>
     <li>Lowest Point: ${gpxLayer.get_elevation_min().toFixed()} m. a. Z.</li>

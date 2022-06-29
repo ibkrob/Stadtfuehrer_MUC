@@ -1,7 +1,7 @@
 /* Bike Trail Tirol Beispiel */
 
 let muenchen = {
-    lat: 48.137222, 
+    lat: 48.137222,
     lng: 11.575556,
     zoom: 15
 };
@@ -86,7 +86,7 @@ let miniMap = new L.Control.MiniMap(
 overlays.gpx.addTo(map);
 
 // GPX Track Layer implementieren
-let gpxTrack = new L.GPX("./data/stadtfuehrung.gpx",  {
+let gpxTrack = new L.GPX("./data/stadtfuehrung.gpx", {
     async: true,
     marker_options: {
         startIconUrl: 'icons/start.png',
@@ -113,9 +113,11 @@ gpxTrack.on("loaded", function (evt) {
     map.fitBounds(gpxLayer.getBounds());
 
 
-    
-    new L.GPX(gpx, {async: true}).on('loaded', function(e) {
-      map.fitBounds(e.target.getBounds());
+
+    new L.GPX(gpx, {
+        async: true
+    }).on('loaded', function (e) {
+        map.fitBounds(e.target.getBounds());
     }).addTo(map);
 
 
@@ -136,27 +138,16 @@ gpxTrack.on("loaded", function (evt) {
 `;
 
 
-
-var gpxTrack = new L.GPX("./data/standort.gpx",  {
-    async: true,
-    marker_options: {
-        IconUrl: './icons/mountain.png',
-        
-    }
-
-}).addTo(overlays.gpx);
-
-
     // Print
     L.control.bigImage({
-        position: 'bottomleft'
+        position: 'topleft'
     }).addTo(map);
 
 
 
- // Rainviewer
+    // Rainviewer
     L.control.rainviewer({
-        position: 'topleft',
+        position: 'bottomleft',
         nextButtonText: '>',
         playStopButtonText: 'Play/Stop',
         prevButtonText: '<',
@@ -182,7 +173,8 @@ let elevationControl = L.control.elevation({
         detached: true,
         useLeafletMarker: true,
         summary: 'points',
-        hotline: false,}
+        hotline: false,
+    }
 
 
 

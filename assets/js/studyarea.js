@@ -96,7 +96,7 @@ let gpxTrack = new L.GPX("./data/stadtfuehrung.gpx", {
         iconAnchor: [16, 37],
     },
     polyline_options: {
-        color: "black",
+        color: "white",
         dashArray: [5, 4],
     }
 

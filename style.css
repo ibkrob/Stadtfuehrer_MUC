@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Roboto:wght@300&display=swap');
+
+
 *,
 *::before,
 *::after {
@@ -10,14 +13,18 @@ html {font-size: fit-content; }
 /* html {font-size: 63%; } */
 
 body {
-  font-family: Arial, sans-serif;
+    font-family: "Adelle", "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 1.7;
   min-height: 100vh;
   background-color:#fff;
-  padding-top: 5rem;
+  /* padding-top: 5rem; */
+  
 }
 
+h2{
+    position:relative;
+}
 .container {
   margin: 0 auto;
   width: 32rem;

@@ -8,7 +8,7 @@ body {
 }
 
 a {
-    color: white;
+    color: rgb(15, 14, 14);
 
 }
 
@@ -17,50 +17,69 @@ a {
 }
 
 .content {
-    width: 100%
+    width: 100%;
+    color: rgb(15, 14, 14);
+
+    
 }
 
 main {
     max-width: 1200px;
     margin: auto;
-    color: white;
+    color: rgb(15, 14, 14);
 }
 
 header {
     display: flex;
     justify-content: space-between;
     max-height: 50px;
+    color: rgb(15, 14, 14);
+
 }
 
 header h2 {
     margin: 0;
+    color: rgb(15, 14, 14);
+
+    
+
 }
 
 header nav {
     font-size: 0.9em;
     font-weight: bold;
     padding-top: 1em;
+    color: rgb(15, 14, 14);
+
 }
 
 article {
     margin-top: 0.5em;
     border-top: 1px solid black;
+    color: rgb(15, 14, 14);
+
 }
 
 article h1,
 article h3 {
     font-family: "Adelle", "Roboto", sans-serif;
     font-style: italic;
+    color: rgb(15, 14, 14);
+
 }
 
 article p {
     text-align: justify;
+    color: rgb(15, 14, 14);
+
 }
 
 article #map {
     width: 100%;
     height: 600px;
     border: 1px solid gray;
+    color: rgb(15, 14, 14);
+
 }
 
 footer {
@@ -69,10 +88,14 @@ footer {
     margin-top: 0.5em;
     border-top: 1px solid black;
     padding: 1em 0em 3em 0em;
+    color: rgb(15, 14, 14);
+
 }
 
 footer nav {
     display: inline-block;
+    color: rgb(15, 14, 14);
+
 }
 
 #profile {

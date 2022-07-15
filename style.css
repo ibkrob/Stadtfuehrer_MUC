@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 
+html {font-size: fit-content; }
 /* html {font-size: 63%; } */
 
 body {
